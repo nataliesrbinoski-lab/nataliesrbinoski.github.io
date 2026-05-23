@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Natalie Srbinoski — CHEM324 ePortfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --teal: #1a7a7a;
+    --teal-light: #2a9d8f;
+    --teal-pale: #e8f4f4;
+    --teal-mid: #b2d8d8;
+    --ink: #1a1a2e;
+    --ink-soft: #3d3d5c;
+    --warm-grey: #f7f6f4;
+    --border: #e2e0db;
+    --white: #ffffff;
+    --gold: #c9a84c;
+    --serif: 'DM Serif Display', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    font-weight: 300;
+    color: var(--ink);
+    background: var(--white);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── NAVIGATION ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.96);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 2rem;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-logo {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    color: var(--teal);
+    text-decoration: none;
+    letter-spacing: -0.01em;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 0;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: var(--sans);
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    text-decoration: none;
+    padding: 0.5rem 0.9rem;
+    border-radius: 4px;
+    transition: color 0.2s, background 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--teal); background: var(--teal-pale); }
+  .nav-links a.active { color: var(--teal); }
+
+  .nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+    padding: 4px;
+  }
+
+  .nav-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--ink);
+    transition: all 0.3s;
+  }
+
+  /* ── SECTIONS ── */
+  section {
+    min-height: 100vh;
+    padding: 100px 0 80px;
+  }
+
+  .container {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .container-wide {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  /* ── HOME ── */
+  #home {
+    background: var(--white);
+    display: flex;
+    align-items: center;
+    padding-top: 64px;
+    min-height: 100vh;
+  }
+
+  .home-inner {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 80px 2rem;
+  }
+
+  .home-eyebrow {
+    font-family: var(--sans);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .home-eyebrow::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: var(--teal);
+  }
+
+  .home-title {
+    font-family: var(--serif);
+    font-size: clamp(2.8rem, 6vw, 4.5rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+  }
+
+  .home-title em {
+    font-style: italic;
+    color: var(--teal);
+  }
+
+  .home-subtitle {
+    font-family: var(--sans);
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--ink-soft);
+    margin-bottom: 2.5rem;
+    letter-spacing: 0.01em;
+  }
+
+  .home-divider {
+    width: 48px;
+    height: 2px;
+    background: var(--gold);
+    margin-bottom: 2.5rem;
+  }
+
+  .home-body p {
+    font-size: 1.05rem;
+    color: var(--ink-soft);
+    margin-bottom: 1.2rem;
+    max-width: 620px;
+  }
+
+  .home-pull {
+    margin-top: 3rem;
+    padding: 1.5rem 2rem;
+    border-left: 3px solid var(--teal);
+    background: var(--teal-pale);
+    border-radius: 0 8px 8px 0;
+  }
+
+  .home-pull p {
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    font-style: italic;
+    color: var(--teal);
+    line-height: 1.5;
+  }
+
+  .theme-nav {
+    margin-top: 3.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .theme-pill {
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: var(--teal);
+    border: 1px solid var(--teal-mid);
+    padding: 0.45rem 1rem;
+    border-radius: 100px;
+    text-decoration: none;
+    transition: all 0.2s;
+    background: var(--white);
+  }
+
+  .theme-pill:hover {
+    background: var(--teal);
+    color: var(--white);
+    border-color: var(--teal);
+  }
+
+  /* ── THEME PAGES ── */
+  .theme-section { background: var(--white); }
+  .theme-section:nth-child(even) { background: var(--warm-grey); }
+
+  .theme-header {
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .theme-number {
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .theme-number::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: var(--teal);
+  }
+
+  .theme-title {
+    font-family: var(--serif);
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin-bottom: 0;
+  }
+
+  .theme-title em { color: var(--teal); font-style: italic; }
+
+  /* ── CONTENT ELEMENTS ── */
+  .subheading {
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin: 2.5rem 0 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .subheading::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--teal-mid);
+  }
+
+  .hook {
+    font-family: var(--serif);
+    font-size: 1.25rem;
+    font-style: italic;
+    color: var(--ink);
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+  }
+
+  p {
+    font-size: 0.97rem;
+    color: var(--ink-soft);
+    margin-bottom: 1rem;
+    max-width: 680px;
+  }
+
+  .pull-quote {
+    margin: 2rem 0;
+    padding: 1.25rem 1.75rem;
+    border-left: 3px solid var(--teal);
+    background: var(--teal-pale);
+    border-radius: 0 8px 8px 0;
+  }
+
+  .pull-quote p {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--teal);
+    margin: 0;
+    max-width: 100%;
+  }
+
+  /* ── ARTEFACT ── */
+  .artefact {
+    margin: 2rem 0;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    background: var(--white);
+  }
+
+  .artefact-placeholder {
+    background: var(--warm-grey);
+    border-bottom: 1px solid var(--border);
+    padding: 3rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    min-height: 180px;
+    text-align: center;
+    position: relative;
+  }
+
+  .artefact-placeholder img {
+    max-width: 100%;
+    max-height: 400px;
+    object-fit: contain;
+    display: block;
+  }
+
+  .artefact-placeholder .placeholder-text {
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--teal-mid);
+  }
+
+  .artefact-placeholder svg {
+    opacity: 0.3;
+  }
+
+  .artefact-caption {
+    padding: 1rem 1.25rem;
+    background: var(--white);
+  }
+
+  .artefact-caption .caption-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 0.4rem;
+  }
+
+  .artefact-caption p {
+    font-size: 0.85rem;
+    font-style: italic;
+    color: var(--ink-soft);
+    margin: 0;
+    max-width: 100%;
+    line-height: 1.6;
+  }
+
+  /* ── TAKEAWAY BOX ── */
+  .takeaway {
+    margin: 2.5rem 0;
+    background: var(--teal-pale);
+    border: 1px solid var(--teal-mid);
+    border-radius: 10px;
+    padding: 1.5rem 1.75rem;
+  }
+
+  .takeaway-row {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+    align-items: flex-start;
+  }
+
+  .takeaway-row:last-child { margin-bottom: 0; }
+
+  .takeaway-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--teal);
+    white-space: nowrap;
+    padding-top: 0.15rem;
+    min-width: 120px;
+  }
+
+  .takeaway-text {
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+    line-height: 1.6;
+    margin: 0;
+    max-width: 100%;
+  }
+
+  /* ── REFERENCES ── */
+  .references {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .references h4 {
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 1rem;
+  }
+
+  .references p {
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+    margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    text-indent: -1.5rem;
+    max-width: 100%;
+  }
+
+  /* ── PENDING BADGE ── */
+  .pending {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid var(--gold);
+    padding: 0.25rem 0.75rem;
+    border-radius: 100px;
+    margin-bottom: 0.75rem;
+  }
+
+  .pending::before {
+    content: '⏳';
+    font-size: 0.65rem;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ink);
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    padding: 2.5rem 2rem;
+    font-size: 0.82rem;
+  }
+
+  footer span { color: var(--teal-light); }
+
+  /* ── MOBILE ── */
+  @media (max-width: 720px) {
+    .nav-links { display: none; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: white; border-bottom: 1px solid var(--border); padding: 1rem; }
+    .nav-links.open { display: flex; }
+    .nav-toggle { display: flex; }
+    .takeaway-row { flex-direction: column; gap: 0.25rem; }
+    .takeaway-label { min-width: unset; }
+    section { padding: 80px 0 60px; }
+  }
+
+  /* ── ANIMATIONS ── */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav id="navbar">
+  <a href="#home" class="nav-logo">Natalie Srbinoski</a>
+  <button class="nav-toggle" id="navToggle" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#career">Career Readiness</a></li>
+    <li><a href="#analytical">Analytical Skills</a></li>
+    <li><a href="#lab">Lab Practice</a></li>
+    <li><a href="#communication">Communication</a></li>
+    <li><a href="#collaboration">Collaboration</a></li>
+  </ul>
+</nav>
+
+<!-- ══════════════════════════════════════════════════════════════
+     HOME
+══════════════════════════════════════════════════════════════ -->
+<section id="home">
+  <div class="home-inner">
+    <div class="home-eyebrow fade-in">CHEM324 ePortfolio · University of Wollongong · 2026</div>
+    <h1 class="home-title fade-in">Natalie<br><em>Srbinoski</em></h1>
+    <p class="home-subtitle fade-in">Bachelor of Medicinal Chemistry (Honours)</p>
+    <div class="home-divider fade-in"></div>
+    <div class="home-body fade-in">
+      <p>I am a third-year Medicinal Chemistry student at the University of Wollongong, completing the Bachelor of Medicinal Chemistry (Honours). My interests in pharmacy and neuroscience converged during my degree when I began to see how molecular design, receptor pharmacology, and clinical drug use connect. That convergence led me to neuropharmacology.</p>
+      <p>This ePortfolio documents my skill development during CHEM324 across two areas: research skills and employability. The five themes that follow reflect not just what I did this semester, but what I learned, what went wrong, and what I would do differently.</p>
+      <p>I have tried to be honest rather than polished. Genuine reflection is more useful than a highlight reel.</p>
+    </div>
+    <div class="home-pull fade-in">
+      <p>"The work documented here shaped how I think about chemistry, research, and my own development as a scientist."</p>
+    </div>
+    <div class="theme-nav fade-in">
+      <a href="#career" class="theme-pill">Career Readiness</a>
+      <a href="#analytical" class="theme-pill">Analytical Skills</a>
+      <a href="#lab" class="theme-pill">Lab Practice</a>
+      <a href="#communication" class="theme-pill">Communication</a>
+      <a href="#collaboration" class="theme-pill">Collaboration</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════
+     THEME 1 — CAREER READINESS
+══════════════════════════════════════════════════════════════ -->
+<section id="career" class="theme-section">
+  <div class="container">
+    <div class="theme-header fade-in">
+      <div class="theme-number">Theme 1 · Employability</div>
+      <h2 class="theme-title">Finding the Intersection:<br><em>How Pharmacy and Neuroscience Led Me to Neuropharmacology</em></h2>
+    </div>
+
+    <div class="subheading fade-in">Where I Started</div>
+    <p class="hook fade-in">I did not plan to be interested in neuropharmacology. I planned to be interested in pharmacy. And separately, neuroscience. It took most of my degree to realise those two things were the same plan all along.</p>
+    <p class="fade-in">The questions that kept coming up in both fields were the same ones. How do drugs cross the blood-brain barrier? How do receptor dynamics translate into clinical outcomes? Why do compounds with strong in vitro activity sometimes fail entirely in the CNS?</p>
+    <p class="fade-in">Neuropharmacology is where those questions are answered. Recognising that intersection was the first step. Knowing what to do with it is the work I am still doing.</p>
+
+    <div class="subheading fade-in">What I Did This Semester</div>
+    <p class="fade-in">During CHEM324 I researched my pathway concretely. I am already enrolled in Honours at UOW beginning next year. The key question is not whether to do Honours, but what direction to take it in.</p>
+    <p class="fade-in">I reviewed neuropharmacology-adjacent research groups at UOW through the Molecular Horizons Institute, looked into the Molecular Neurosciences research theme, and researched the Master of Pharmacy at the University of Sydney as my intended registration pathway after Honours.</p>
+
+    <div class="artefact fade-in">
+      <div class="artefact-placeholder">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#1a7a7a" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        <span class="placeholder-text">Upload: UOW Molecular Neurosciences Page Screenshot</span>
+      </div>
+      <div class="artefact-caption">
+        <div class="caption-label">Artefact 1</div>
+        <p>Screenshot of the UOW Molecular Neurosciences research page, Molecular Horizons Institute, captured May 2026. Reviewing this page was part of identifying potential supervisory directions for my Honours project. Finding that UOW has active research groups working on pharmacological interventions and neural cell models made the prospect of a neuropharmacology-focused Honours project feel genuinely possible rather than abstract.</p>
+      </div>
+    </div>
+
+    <div class="artefact fade-in">
+      <div class="artefact-placeholder">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#1a7a7a" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        <span class="placeholder-text">Upload: USYD Master of Pharmacy Page Screenshot</span>
+      </div>
+      <div class="artefact-caption">
+        <div class="caption-label">Artefact 2</div>
+        <p>Screenshot of the University of Sydney Master of Pharmacy program page, captured May 2026. This represents my intended pathway to pharmacy registration following Honours. Researching this program helped me understand exactly what the next three to four years of my training need to achieve and why the skills I am building in CHEM324 are directly relevant to that goal.</p>
+      </div>
+    </div>
+
+    <div class="subheading fade-in">What CHEM324 Changed</div>
+    <p class="fade-in">What I did not expect was how much the practical work of CHEM324 would clarify my thinking. The Cu(II) peptide project required designing experiments around an open research question, interpreting spectroscopic data, and drawing conclusions from incomplete evidence. That is exactly what Honours research demands.</p>
+    <p class="fade-in">The water analysis project contributed differently. Managing a complex multi-analyte dataset and being required to classify unknown samples with explicit confidence levels felt directly relevant to the evidence-based reasoning that pharmacy practice also requires.</p>
+    <p class="fade-in">Both projects, in different ways, confirmed that the path I have chosen suits how I think.</p>
+
+    <div class="takeaway fade-in">
+      <div class="takeaway-row">
+        <span class="takeaway-label">Key development</span>
+        <p class="takeaway-text">Moved from having two separate interests to understanding how they connect, and from general curiosity to a concrete three-step plan: Honours at UOW, MPharm at USYD, pharmacy registration.</p>
+      </div>
+      <div class="takeaway-row">
+        <span class="takeaway-label">Next step</span>
+        <p class="takeaway-text">Contact a neuropharmacology research group at UOW before the Honours project selection process begins.</p>
+      </div>
+    </div>
+
+    <div class="references fade-in">
+      <h4>References</h4>
+      <p>Pharmacy Board of Australia (2026) <em>Registration</em>. Available at: https://www.pharmacyboard.gov.au/Registration/ (Accessed: 23 May 2026).</p>
+      <p>University of Wollongong (2026) <em>Molecular Neurosciences</em>. Available at: https://www.uow.edu.au/research-and-innovation/our-research/research-institutes-and-facilities/molecular-horizons/themes-disciplines/molecular-neurosciences/ (Accessed: 23 May 2026).</p>
+      <p>University of Sydney (2026) <em>Master of Pharmacy</em>. Available at: https://www.sydney.edu.au/courses/courses/pc/master-of-pharmacy.html (Accessed: 23 May 2026).</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════
+     THEME 2 — ANALYTICAL SKILLS
+══════════════════════════════════════════════════════════════ -->
+<section id="analytical" class="theme-section">
+  <div class="container">
+    <div class="theme-header fade-in">
+      <div class="theme-number">Theme 2 · Research Skills</div>
+      <h2 class="theme-title">From Raw Data to<br><em>Chemical Inference</em></h2>
+    </div>
+
+    <div class="subheading fade-in">The Problem With Just Reporting Numbers</div>
+    <p class="hook fade-in">For the first few weeks of Project 1, I thought data analysis meant producing results. It took a physically impossible number to make me realise it actually meant interrogating them.</p>
+    <p class="fade-in">Project 1 required analysis of six unknown water samples across pH, conductivity, TSS, TDS, nutrients, anions, major ions, and trace metals by both UV-Vis and MP-AES. Early in the project I treated individual measurements as conclusions. A conductivity value was a result. A metal concentration was a result.</p>
+    <p class="fade-in">What I had not developed yet was the habit of asking what those results meant together.</p>
+
+    <div class="subheading fade-in">When the Data Did Not Make Sense</div>
+    <p class="fade-in">The shift happened gradually. When dissolved copper exceeded total leachable copper in several samples, which is physically difficult to explain, I had to decide whether to flag the anomaly or ignore it.</p>
+    <p class="fade-in">I flagged it. I attributed the discrepancy to sub-sample heterogeneity or matrix effects, noted it as a limitation, and moved on. That decision, small as it sounds, was a shift in how I thought about data.</p>
+    <p class="fade-in">The same thing happened with Sample F. Its sulphate and magnesium concentrations exceeded those of Sample A, the marine endmember. A simple seawater dilution model could not explain that. I said so explicitly in the report rather than forcing a clean classification onto ambiguous evidence.</p>
+
+    <div class="pull-quote fade-in">
+      <p>"Accepting uncertainty rather than forcing a clean answer was harder than it sounds. But it was also the most important analytical skill I developed this semester."</p>
+    </div>
+
+    <div class="artefact fade-in">
+      <div class="artefact-placeholder">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#1a7a7a" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        <span class="placeholder-text">Upload: Figure 9 from Project 1 Report (TSS vs Fe Scatter Plot)</span>
+      </div>
+      <div class="artefact-caption">
+        <div class="caption-label">Artefact 1</div>
+        <p>Figure 9 from my CHEM324 Project 1 report, showing the relationship between total suspended solids and total leachable iron across water samples A-F. I constructed this figure independently to look for cross-parameter relationships rather than treating each measurement in isolation. It supported the interpretation of Sample E as turbid runoff and shows a shift from reporting individual values to thinking across the full dataset.</p>
+      </div>
+    </div>
+
+    <div class="subheading fade-in">What Feedback Confirmed</div>
+
+    <div class="artefact fade-in">
+      <div class="artefact-placeholder">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#1a7a7a" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        <span class="placeholder-text">Upload: E-lab Book Written Feedback Screenshot</span>
+      </div>
+      <div class="artefact-caption">
+        <div class="caption-label">Artefact 2</div>
+        <p>Written feedback on my CHEM324 e-lab book, Semester 1 2026. The comment that quality control was consistently and thoughtfully evaluated confirmed that my approach to identifying limitations was on the right track. The suggestion to improve conciseness and unit consistency was fair and is something I have been more careful about since receiving it.</p>
+      </div>
+    </div>
+
+    <div class="subheading fade-in">Why This Matters Beyond CHEM324</div>
+    <p class="fade-in">In clinical pharmacy and Honours research, knowing when a result is reliable and what its limitations mean for your conclusions is a core skill. Drug assay results, pharmacokinetic curves, and biochemical panels all require the same critical orientation.</p>
+    <p class="fade-in">CHEM324 gave me an early, practical version of that training. I am more aware now of what I still need to develop, which is itself a form of progress.</p>
+
+    <div class="takeaway fade-in">
+      <div class="takeaway-row">
+        <span class="takeaway-label">Key development</span>
+        <p class="takeaway-text">Moved from treating data as a series of individual results to reading a dataset as a whole system, including its anomalies and limitations.</p>
+      </div>
+      <div class="takeaway-row">
+        <span class="takeaway-label">Next step</span>
+        <p class="takeaway-text">Apply this approach to Honours data, where multi-variable datasets and ambiguous results will be a regular part of the work.</p>
+      </div>
+    </div>
+
+    <div class="references fade-in">
+      <h4>References</h4>
+      <p>American Public Health Association (2017) <em>Standard Methods for the Examination of Water and Wastewater</em>. 23rd edn. Washington DC: American Public Health Association.</p>
+      <p>McCleskey, R.B., Nordstrom, D.K., Ryan, J.N. and Ball, J.W. (2011) 'A new method of calculating electrical conductivity with applications to natural waters', <em>Geochimica et Cosmochimica Acta</em>, 75(16), pp. 4739-4752.</p>
+      <p>Stumm, W. and Morgan, J.J. (1996) <em>Aquatic Chemistry: Chemical Equilibria and Rates in Natural Waters</em>. 3rd edn. New York: John Wiley and Sons.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════
+     THEME 3 — LAB PRACTICE
+══════════════════════════════════════════════════════════════ -->
+<section id="lab" class="theme-section">
+  <div class="container">
+    <div class="theme-header fade-in">
+      <div class="theme-number">Theme 3 · Research Skills</div>
+      <h2 class="theme-title">Precision in Practice:<br><em>Learning Through What Went Wrong</em></h2>
+    </div>
+
+    <div class="subheading fade-in">What I Expected vs What I Found</div>
+    <p class="hook fade-in">Our Cu(II)-cysteine complex came out dark purple. The literature said it should be pink. That was the moment CHEM324 stopped feeling like a subject and started feeling like actual research.</p>
+    <p class="fade-in">I came into this semester expecting laboratory work to be largely procedural. Follow the method. Obtain the result. What I found was that the method is a starting point, not a guarantee.</p>
+    <p class="fade-in">Responding well to unexpected outcomes turned out to be just as important as following instructions correctly.</p>
+
+    <div class="subheading fade-in">Case Study 1 — When the Numbers Were Unreliable</div>
+    <p class="fade-in">In Practical 3 (MP-AES), copper blank contamination accounted for 70.8% of the total leachable sample concentration. Iron showed an RSD exceeding 15% between duplicates.</p>
+    <p class="fade-in">These were not minor uncertainties. They meaningfully compromised the reliability of those measurements.</p>
+    <p class="fade-in">In my e-lab book I reported them honestly and proposed specific fixes: higher purity reagents, acid-washed glassware, and additional low-concentration calibration points. At the time, writing those reflections felt like admitting failure. I now recognise that identifying and communicating the limitations of your data is a core competency in analytical chemistry, not an admission of incompetence.</p>
+
+    <div class="pull-quote fade-in">
+      <p>"At the time, writing those reflections felt like admitting failure. Now I understand it as one of the most important things a scientist can do."</p>
+    </div>
+
+    <div class="artefact fade-in">
+      <div class="artefact-placeholder">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#1a7a7a" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        <span class="placeholder-text">Upload: QC Blank Contamination Table from E-lab Book Practical 3</span>
+      </div>
+      <div class="artefact-caption">
+        <div class="caption-label">Artefact 1</div>
+        <p>Blank contamination table from CHEM324 e-lab book Practical 3 (MP-AES), showing copper blank at 70.8% of the leachable sample concentration and iron RSD at 15.17%. Including this table honestly in my e-lab book, rather than omitting or minimising the problem, reflects a shift in how I approach data quality. The specific remediation steps I proposed show that I could move from identifying a problem to thinking about how to fix it.</p>
+      </div>
+    </div>
+
+    <div class="subheading fade-in">Case Study 2 — When the Synthesis Did Not Match the Literature</div>
+    <p class="fade-in">The yield exceeded 100%. That pointed immediately to impurities or incomplete drying rather than a clean product. We trialled four different solvents trying to dissolve it adequately, researched recrystallisation approaches, and cross-referenced FTIR data to assess whether Cu coordination had actually occurred.</p>
+    <p class="fade-in">None of this was in the original method. It required treating the problem as a research question rather than a procedural failure.</p>
+
+    <div class="artefact fade-in">
+      <div class="artefact-placeholder">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#1a7a7a" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        <span class="placeholder-text">Upload: Table 1 from Project 2 ePoster (Yield Data)</span>
+      </div>
+      <div class="artefact-caption">
+        <div class="caption-label">Artefact 2</div>
+        <p>Yield data for synthesised Cu(II) complexes from the CHEM324 Project 2 ePoster. The greater than 100% yield for Cu(II)-cysteine was the starting point for our troubleshooting process. Rather than accepting the result uncritically, the group used it as evidence that something in the synthesis needed to be investigated further. This table represents the beginning of a process, not just a result.</p>
+      </div>
+    </div>
+
+    <div class="subheading fade-in">The Detective Work</div>
+    <p class="fade-in">The most significant shift in my thinking this semester came from piecing together three separate lines of evidence: the MS/MS fragment ions, the weakened S-H band in the FTIR overlay, and the GFAAS copper content.</p>
+    <p class="fade-in">Each technique added a partial answer. The full picture only emerged when I considered them together.</p>
+    <p class="fade-in">That experience changed how I understand characterisation. It is not confirmation of a known result. It is evidence-based reasoning under uncertainty, and it is exactly the kind of thinking that independent Honours research will require.</p>
+
+    <div class="takeaway fade-in">
+      <div class="takeaway-row">
+        <span class="takeaway-label">Key development</span>
+        <p class="takeaway-text">Moved from following a method to diagnosing why a method failed, and from treating unexpected results as errors to treating them as information.</p>
+      </div>
+      <div class="takeaway-row">
+        <span class="takeaway-label">Next step</span>
+        <p class="takeaway-text">Carry this mindset into Honours, where troubleshooting will be the norm rather than the exception.</p>
+      </div>
+    </div>
+
+    <div class="references fade-in">
+      <h4>References</h4>
+      <p>Grass, G., Rensing, C. and Solioz, M. (2010) 'Metallic copper as an antimicrobial surface', <em>Applied and Environmental Microbiology</em>, 77(5), pp. 1541-1547.</p>
+      <p>Salah, I., Parkin, I.P. and Allan, E. (2021) 'Copper as an antimicrobial agent: recent advances', <em>RSC Advances</em>, 11(30), pp. 18179-18186.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════
+     THEME 4 — SCIENTIFIC COMMUNICATION
+══════════════════════════════════════════════════════════════ -->
+<section id="communication" class="theme-section">
+  <div class="container">
+    <div class="theme-header fade-in">
+      <div class="theme-number">Theme 4 · Research Skills</div>
+      <h2 class="theme-title">Communicating Chemistry:<br><em>From Written Report to Academic Presentation</em></h2>
+    </div>
+
+    <div class="subheading fade-in">Two Formats, Two Different Challenges</div>
+    <p class="hook fade-in">Writing the water analysis report and presenting the Cu(II) poster to four academics required the same information. But they were completely different challenges. One rewarded precision. The other rewarded the ability to think out loud.</p>
+    <p class="fade-in">The written report required a structured argument from evidence: move from raw data through interpretation to conclusions, with every claim supported and every limitation acknowledged.</p>
+    <p class="fade-in">The ePoster required me to distil that same complexity into a visual format and then defend it verbally, on the spot, to academics who could ask anything.</p>
+
+    <div class="subheading fade-in">What Writing Taught Me</div>
+    <p class="fade-in">One aspect of the report I found genuinely difficult was knowing how much uncertainty to express. I classified Sample C as a disturbed urban nitrogen system with low confidence and said so explicitly, because the evidence was genuinely ambiguous.</p>
+    <p class="fade-in">I was uncertain whether acknowledging that uncertainty would be seen as weakness. The marking rubric rewarded it. That reinforced something I will carry forward: scientific writing is not about projecting certainty. It is about accurately representing what the evidence does and does not support.</p>
+
+    <div class="artefact fade-in">
+      <div class="artefact-placeholder">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#1a7a7a" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        <span class="placeholder-text">Upload: Project 1 Marking Rubric Screenshot</span>
+      </div>
+      <div class="artefact-caption">
+        <div class="caption-label">Artefact 1</div>
+        <p>CHEM324 Project 1 marking rubric showing assessment criteria for Results, Interpretation, Integration, Literature, and Writing. Using this rubric actively while drafting my report helped me understand the difference between describing data and analysing it. The Interpretation criterion, which rewards explaining chemical processes clearly and accurately, pushed me to think beyond what the numbers were and focus on what they meant.</p>
+      </div>
+    </div>
+
+    <div class="subheading fade-in">What Presenting Taught Me</div>
+    <p class="fade-in">Four academic staff members came to our poster individually, asked questions, and expected us to respond without a script. Feedback noted that the graphs were well-presented and that the MS/MS labelling and overlaid IR spectra were particularly effective.</p>
+    <p class="fade-in">I was also told to step back from the script and speak more conversationally. That feedback was accurate. I had prepared thoroughly, but preparation had tipped into over-rehearsal. The delivery was technically correct but not naturally confident.</p>
+
+    <div class="pull-quote fade-in">
+      <p>"One academic asked whether I genuinely believed peptide complexation was worth pursuing given our results. I had to think on my feet. The honest answer was better than anything I had scripted."</p>
+    </div>
+
+    <p class="fade-in">The honest answer was that results under disc diffusion conditions were limited, but the question of whether peptide coordination could improve copper bioavailability or selectivity remained scientifically interesting. Giving that answer, unrehearsed, was more valuable than any rehearsed version of it would have been.</p>
+
+    <div class="artefact fade-in">
+      <div class="artefact-placeholder">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#1a7a7a" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        <span class="placeholder-text">Upload: Section of Project 2 ePoster (Introduction and Discussion Panels)</span>
+      </div>
+      <div class="artefact-caption">
+        <div class="caption-label">Artefact 2</div>
+        <p>Introduction and discussion panels from the CHEM324 Project 2 ePoster, presented to academic staff at UOW, Semester 1 2026. This artefact shows my ability to translate a complex research question into a clear visual format. The discussion panel required me to communicate what the results did and did not show, including limitations of the disc diffusion assay and solubility constraints, in a format accessible to an academic audience.</p>
+      </div>
+    </div>
+
+    <div class="takeaway fade-in">
+      <div class="takeaway-row">
+        <span class="takeaway-label">Key development</span>
+        <p class="takeaway-text">Moved from communicating what I did to communicating what it means, and from scripted delivery to confident, flexible engagement with questions.</p>
+      </div>
+      <div class="takeaway-row">
+        <span class="takeaway-label">Next step</span>
+        <p class="takeaway-text">In future presentations, prepare by understanding rather than memorising. Know the material well enough that questions feel like a conversation rather than a test.</p>
+      </div>
+    </div>
+
+    <div class="references fade-in">
+      <h4>References</h4>
+      <p>Stumm, W. and Morgan, J.J. (1996) <em>Aquatic Chemistry: Chemical Equilibria and Rates in Natural Waters</em>. 3rd edn. New York: John Wiley and Sons.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════
+     THEME 5 — COLLABORATIVE RESEARCH
+══════════════════════════════════════════════════════════════ -->
+<section id="collaboration" class="theme-section">
+  <div class="container">
+    <div class="theme-header fade-in">
+      <div class="theme-number">Theme 5 · Research Skills</div>
+      <h2 class="theme-title">Research as a Team:<br><em>Lessons from the Cu(II) Complex Project</em></h2>
+    </div>
+
+    <div class="subheading fade-in">A Different Kind of Group Work</div>
+    <p class="hook fade-in">Group work in a research context is different from group work in a taught course. The stakes feel different when nobody knows the answer in advance, including the demonstrators.</p>
+    <p class="fade-in">Project 2 asked a genuinely open question: can Cu(II)-cysteine and Cu(II)-peptide complexes demonstrate antibacterial activity, and does peptide coordination improve on copper salts alone?</p>
+    <p class="fade-in">Producing a credible response required coordinating synthesis, characterisation, and biological testing across a group, under time pressure, with results that did not always behave as expected.</p>
+
+    <div class="subheading fade-in">What Collaboration Actually Looked Like</div>
+    <p class="fade-in">When our Cu(II)-cysteine synthesis produced a dark purple product at greater than 100% yield, the group had to agree on how to interpret and represent that result honestly in the poster. That required everyone to justify their reasoning, not just divide up tasks.</p>
+    <p class="fade-in">The moments of disagreement within the group about how confidently to state a conclusion were actually productive. They forced more careful thinking about what the evidence actually supported.</p>
+    <p class="fade-in">The poster discussion section, which honestly assessed the limitations of the disc diffusion assay and the role of solubility in limiting antibacterial activity, was stronger because of that process.</p>
+
+    <div class="pull-quote fade-in">
+      <p>"The hardest part of the collaboration was not the chemistry. It was agreeing on how confidently to state something when the evidence was incomplete."</p>
+    </div>
+
+    <div class="subheading fade-in">My Contribution</div>
+    <p class="fade-in">My contribution focused on characterisation analysis and written communication. Interpreting the FTIR overlay, cross-referencing the MS/MS fragment ions, and drafting the discussion section were the parts of the project where I felt most confident and most engaged.</p>
+    <p class="fade-in">I also found that explaining my interpretation to group members, and having them push back on it, made my own understanding more precise.</p>
+
+    <div class="artefact fade-in">
+      <div class="artefact-placeholder">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#1a7a7a" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        <span class="placeholder-text">Upload: Full Project 2 ePoster</span>
+      </div>
+      <div class="artefact-caption">
+        <div class="caption-label">Artefact 1</div>
+        <p>CHEM324 Project 2 ePoster: "Old Metal, New Tricks: Can Copper Peptides Fight Bacteria?", co-produced as a group output following synthesis, characterisation, and antibacterial evaluation of Cu(II)-cysteine and Cu(II)-peptide complexes. My specific contribution to the characterisation analysis and discussion sections is reflected in the FTIR comparison, MS/MS interpretation, and the honest assessment of experimental limitations in the discussion panel.</p>
+      </div>
+    </div>
+
+    <div class="artefact fade-in">
+      <div class="artefact-placeholder">
+        <div class="pending">To be added before submission</div>
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#1a7a7a" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <span class="placeholder-text">Upload: Written Peer Feedback Screenshot</span>
+      </div>
+      <div class="artefact-caption">
+        <div class="caption-label">Artefact 2</div>
+        <p>Written peer feedback from a group member documenting my contribution to the characterisation and communication components of the project from the perspective of a collaborator. To be collected and added before final submission.</p>
+      </div>
+    </div>
+
+    <div class="subheading fade-in">What I Will Take Forward</div>
+    <p class="fade-in">Pharmaceutical research, clinical teams, and Honours supervision all involve sustained collaboration on problems without clean answers.</p>
+    <p class="fade-in">CHEM324 gave me an early experience of what that actually feels like, including the frustration when things do not work, the iteration required to find an explanation, and the satisfaction when a coherent picture finally emerges from separate lines of evidence.</p>
+
+    <div class="takeaway fade-in">
+      <div class="takeaway-row">
+        <span class="takeaway-label">Key development</span>
+        <p class="takeaway-text">Moved from thinking of group work as task division to understanding it as collective reasoning, where disagreement and justification are part of the process.</p>
+      </div>
+      <div class="takeaway-row">
+        <span class="takeaway-label">Next step</span>
+        <p class="takeaway-text">Approach Honours as a collaborative relationship with a supervisor, not a solo task with occasional check-ins.</p>
+      </div>
+    </div>
+
+    <div class="references fade-in">
+      <h4>References</h4>
+      <p>Grass, G., Rensing, C. and Solioz, M. (2010) 'Metallic copper as an antimicrobial surface', <em>Applied and Environmental Microbiology</em>, 77(5), pp. 1541-1547.</p>
+      <p>Salah, I., Parkin, I.P. and Allan, E. (2021) 'Copper as an antimicrobial agent: recent advances', <em>RSC Advances</em>, 11(30), pp. 18179-18186.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>Natalie Srbinoski · Bachelor of Medicinal Chemistry (Honours) · <span>University of Wollongong</span> · CHEM324 ePortfolio 2026</p>
+</footer>
+
+<script>
+  // Mobile nav toggle
+  const toggle = document.getElementById('navToggle');
+  const links = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => links.classList.toggle('open'));
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+
+  // Active nav link on scroll
+  const sections = document.querySelectorAll('section');
+  const navLinks = document.querySelectorAll('.nav-links a');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(a => a.classList.remove('active'));
+        const id = entry.target.id;
+        const active = document.querySelector(`.nav-links a[href="#${id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { threshold: 0.4 });
+
+  sections.forEach(s => observer.observe(s));
+
+  // Fade-in on scroll
+  const fadeEls = document.querySelectorAll('.fade-in');
+  const fadeObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        entry.target.style.transitionDelay = `${(i % 4) * 0.07}s`;
+        entry.target.classList.add('visible');
+        fadeObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  fadeEls.forEach(el => fadeObserver.observe(el));
+
+  // Image upload functionality for artefact placeholders
+  document.querySelectorAll('.artefact-placeholder').forEach(placeholder => {
+    placeholder.style.cursor = 'pointer';
+    placeholder.title = 'Click to upload your image';
+    placeholder.addEventListener('click', () => {
+      const input = document.createElement('input');
+      input.type = 'file';
+      input.accept = 'image/*';
+      input.onchange = (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = (ev) => {
+          placeholder.innerHTML = `<img src="${ev.target.result}" alt="Artefact image" style="max-width:100%;max-height:400px;object-fit:contain;display:block;">`;
+          placeholder.style.padding = '1rem';
+          placeholder.style.background = 'var(--white)';
+        };
+        reader.readAsDataURL(file);
+      };
+      input.click();
+    });
+  });
+</script>
+</body>
+</html>
